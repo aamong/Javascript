@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Date Manipulation using Html Inputs</title>
+
+</head>
+
+<body>
+<script>
+
+
+function BS(){
+var mdate=document.querySelector('input[type="date"]');
+var p=Number(document.querySelector('input[type="text"]').value);
+alert(p);
+var date=new Date(mdate.value);	
+
+var option=document.querySelector('#slx').value;
+
+var day=date.getDate();
+var month = date.getMonth();
+var year = date.getFullYear();
+
+
+
+switch(option){
+    case 'Days':
+	bdate=new Date(year,month,day+p);
+	break;
+	
+	case 'Months':
+	bdate=new Date(year,month+p,day);
+	break;
+	
+	case 'Years':
+	bdate=new Date(year+p,month,day);
+              }
+
+alert(bdate);
+//bdate=new Date(year+56,month+8,day+17);
+//var bmonth=bdate.getMonth()+1;
+
+
+
+if(mdate==null){
+	alert(true);
+var x= document.getElementsByClassName("Ddate");
+x[0].innerHTML="Date Not Selected";
+}
+
+var x= document.getElementsByClassName("Ddate");
+x[0].innerHTML=bdate;
+//newdate=;
+
+}
+
+
+
+</script>
+
+<div>
+Date: <input type="date" name="BCE1" id="mdate"/>
++ 
+<input type="text" name="months" id="ndate"/> 
+<select name="ymd" id="slx">
+<option value="Days">Days</option>
+<option value="Months">Months</option>
+<option value="Years">Years</option>
+</select>
+<input type="button" value="Sum" name="btnme" onclick="BS()" />
+
+
+
+
+<h2>Date Math</h2>
+<p class="Ddate">No Date Selected</p>
+</div>
+
+
+</body>
+</html>
